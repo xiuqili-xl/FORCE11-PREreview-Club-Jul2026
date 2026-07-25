@@ -84,7 +84,8 @@ glimpse(fig4_df)
 ## Graph data (aka, reproducing Figure 1) ----
 ggplot(data = fig4_df,
        mapping = aes(x = Impact.Factor, y = APC.Cost)) +
-  geom_point(shape = 21, color = "darkslateblue", fill = "deepskyblue", alpha = 0.5) +
+  geom_point(shape = 21, size = 2,
+             color = "darkslateblue", fill = "deepskyblue", alpha = 0.5) +
   theme_bw() +
   labs(title = "Association of journal impact factor and APC costs",
        subtitle = "(using data from Cobb-Lewis et al. Zenodo [Dataset]. 2024)",
@@ -93,6 +94,26 @@ ggplot(data = fig4_df,
 
 ggsave(filename = "figure-apc-vs-impact-factor.png", 
        width = 6, height = 4, unit = "in", dpi = 300)
+
+## Hmm... this looks quite different from Fig 1 in the manuscript
+
+
+ggplot(data = fig4_df %>% mutate(row_no = row_number()),
+       mapping = aes(x = row_no, y = APC.Cost)) +
+  geom_point(shape = 21, size = 2,
+             color = "brown", fill = "salmon", alpha = 0.5) +
+  scale_x_continuous(expand = 0.01) +
+  scale_y_continuous(limits = c(0, 15000), expand = 0) +
+  theme_bw() +
+  labs(title = "Association of journal impact factor and APC costs | TEST",
+       subtitle = "(using data from Cobb-Lewis et al. Zenodo [Dataset]. 2024)",
+       x = "Row Number",
+       y = "APC Cost")
+
+ggsave(filename = "figure-apc-vs-row-number.png", 
+       width = 6, height = 4, unit = "in", dpi = 300)
+
+## So.... it looks like Figure 1 in the preprint is actually plotting APC vs row_number()
 
 
 
