@@ -21,7 +21,8 @@ Our collaborative review will be shared on PREreview.
 ## Files
 
 - `code.R`: code used to inspect the data and recreate analyses from the preprint
-- `figure-apc-vs-impact-factor.png`: recreated figure showing the relationship between article processing charges (APCs) vs journal impact factor
+- `figure-apc-vs-impact-factor.png`: exploratory recreation plot graphing article processing charges (APCs) against journal impact factor
+- `figure-apc-vs-row-number.png`: diagnostic plot comparing APCs with dataset row order
 
 
 ## Data availability
@@ -40,4 +41,4 @@ The source data and preprint are subject to their own licenses and terms.
 
 ## Agent usage
 
-Generative AI (Codex, 5.6 Sol Light) was **only** used to draft this README.md file, which has since been reviewed and edited to ensure accuracy.
+Generative AI (Codex, 5.6 Sol Light) was **only** used to draft and update this README.md file, which was subsequently reviewed and edited to ensure accuracy.
